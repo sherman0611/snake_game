@@ -38,7 +38,6 @@ void Setup() {
 void Draw() {
     // update console display
     SetConsoleCursorPosition(GetStdHandle(STD_OUTPUT_HANDLE), {0,0});
-    // system("cls");
 
     // draw top border
     for (int i = 0; i < width+2; i++) {
@@ -185,8 +184,16 @@ void Logic() {
     }
 }
 
+void HideConsoleCursor() {
+    CONSOLE_CURSOR_INFO cursorInfo;
+    cursorInfo.dwSize = 1;
+    cursorInfo.bVisible = false;
+    SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
+}
+
 int main() {
     system("cls");
+    HideConsoleCursor(); 
     Setup();
     while (!gameover) {
         Draw();
