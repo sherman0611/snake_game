@@ -84,23 +84,28 @@ void Draw() {
 
 void Input() {
     if (_kbhit()) {
-        switch (_getch()) {
+        char key = _getch();
+        switch (key) {
             case 'w':
+            case 72: // up arrow key
                 if (dir != DOWN) {
                     dir = UP;
                 }
                 break;
             case 'a':
+            case 75: // left arrow key
                 if (dir != RIGHT) {
                     dir = LEFT;
                 }
                 break;
             case 's':
+            case 80: // down arrow key
                 if (dir != UP) {
                     dir = DOWN;
                 }
                 break;
             case 'd':
+            case 77: // right arrow key
                 if (dir != LEFT) {
                     dir = RIGHT;
                 }
